@@ -1,18 +1,44 @@
+//const { id } = require("fp-ts/lib/Refinement");
+
 function getData() {
-    // これから作ろうとしているもので、JavaScriptでフルネームを生成する必要が出てきました。
-    // ただ現状持っている情報では、名前と苗字をそれぞれのみしかありません。
-    // そのため、JavaScriptで連結させて生成することにしました。
-    const test = [
-        { id: 1, first_name: '優', family_name: '大木', affilication: 'TechTrain', is_student: false },
-        { id: 2, first_name: '太郎', family_name: '山田', affilication: 'HogeHoge大学', is_student: true }
-    ];
-    return test.map(buildFullName)
+  // これから作ろうとしているもので、JavaScriptでフルネームを生成する必要が出てきました。
+  // ただ現状持っている情報では、名前と苗字をそれぞれのみしかありません。
+  // そのため、JavaScriptで連結させて生成することにしました。
+  const test = [
+    {
+      id: 1,
+      first_name: "優",
+      family_name: "大木",
+      affilication: "TechTrain",
+      is_student: false,
+    },
+    {
+      id: 2,
+      first_name: "太郎",
+      family_name: "山田",
+      affilication: "HogeHoge大学",
+      is_student: true,
+    },
+  ];
+  return test.map(buildFullName);
 }
 
 function buildFullName(data) {
-    // Station14の問題はこちらです。想定する答えをここを書いてください。
-    // 氏名がわかるようにしつつ、半角スペースで繋いでください。
-    // またtest配列のそれぞれのオブジェクトに対して、full_nameのプロパティが追加されるように実装すること
+  // Station14の問題はこちらです。想定する答えをここを書いてください。
+  // 氏名がわかるようにしつつ、半角スペースで繋いでください。
+  // またtest配列のそれぞれのオブジェクトに対して、full_nameのプロパティが追加されるように実装すること
+  let fullname = data.family_name + " " + data.first_name;
+  const final_answer = new Object();
+
+  final_answer.id = data.id;
+  final_answer.full_name = fullname;
+  final_answer.first_name = data.first_name;
+  final_answer.family_name = data.family_name;
+  final_answer.affilication = data.affilication;
+  final_answer.is_student = data.is_student;
+
+  console.log(final_answer);
+  return final_answer;
 }
 
 // 出力が想定される答え
